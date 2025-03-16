@@ -23,7 +23,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata: 
-  name: nginx-lb
+  name: app1
 spec:
   selector: #labels re used as selectors
     app: app1
@@ -31,5 +31,31 @@ spec:
   - protocol: TCP
     port: 80 # service port
     targetPort: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+  annotations:
+   alb.ingress.kubernetes.io/scheme: internet-facing
+   alb.ingress.kubernetes.io/target-type: ip 
+   alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
+   alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:329599629534:certificate/2b47240e-0c9c-4ef1-a1d1-5fecff433479
+   alb.ingress.kubernetes.io/group.name: soumya081693
+spec:
+  ingressClassName: alb
+  rules:
+  - host: "app1.telugustreetbyte.online"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: app1
+            port:
+              number: 80
+
+
     
 
