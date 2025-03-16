@@ -40,7 +40,7 @@ metadata:
    alb.ingress.kubernetes.io/scheme: internet-facing
    alb.ingress.kubernetes.io/target-type: ip 
    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
-   alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:329599629534:certificate/2b47240e-0c9c-4ef1-a1d1-5fecff433479
+   alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:329599629534:certificate/a08a95a8-2e38-433b-b011-2aa4de1e8810
    alb.ingress.kubernetes.io/group.name: soumya081693
 spec:
   ingressClassName: alb
