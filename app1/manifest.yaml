@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: soumya081693/app:1.0.0
+        image: soumya081693/app1:1.0.0
         ports:
         - containerPort: 80
 ---
